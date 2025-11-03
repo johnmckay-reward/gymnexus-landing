@@ -1,0 +1,215 @@
+/* GymNexus Landing Page - Main Styles */
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Base Styles */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom dark background pattern */
+.dark-bg-pattern {
+  background-color: #1a2e29;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Enhanced button styles with premium hover effects */
+.btn-primary {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(0, 168, 120, 0.4);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Secondary button hover effects */
+.btn-secondary {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero CTA pulse animation */
+.hero-cta {
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(0, 168, 120, 0.3);
+  }
+  50% {
+    box-shadow: 0 10px 35px -5px rgba(0, 168, 120, 0.5);
+  }
+}
+
+/* Tab transition effects */
+.tab-content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced tab button styles */
+.tab-button {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-button:hover {
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  font-weight: 700;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image effects */
+.img-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Enhanced form input styles */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #00a878;
+  box-shadow: 0 0 0 3px rgba(0, 168, 120, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced shadows for premium feel */
+.shadow-premium {
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-premium-hover:hover {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+/* Trust bar animations */
+.trust-item {
+  transition: all 0.3s ease;
+}
+
+.trust-item:hover {
+  transform: scale(1.05);
+  opacity: 1 !important;
+}
+
+/* Feature list items */
+.feature-list-item {
+  transition: all 0.2s ease;
+}
+
+.feature-list-item:hover {
+  transform: translateX(4px);
+}
+
+/* Navbar scroll effect */
+#navbar {
+  transition: all 0.3s ease;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+/* Gradient text effect for hero */
+.gradient-text {
+  background: linear-gradient(135deg, #00a878 0%, #008f65 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Contact form card */
+.contact-form-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.contact-form-card:hover {
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-cta {
+    animation: none; /* Disable animations on mobile for performance */
+  }
+}

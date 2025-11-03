@@ -10,11 +10,15 @@
     
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- favicon.png -->
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- Custom Tailwind Configuration & Font -->
+    <!-- Custom Tailwind Configuration -->
     <script>
       tailwind.config = {
         theme: {
@@ -42,29 +46,19 @@
       }
     </script>
 
-    <!-- Page Styles -->
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      /* Custom class for a subtle pattern/gradient on dark bg */
-      .dark-bg-pattern {
-        background-color: #1a2e29;
-        background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
-        background-size: 20px 20px;
-      }
-    </style>
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
   <!-- Header -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md transition-all duration-300">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md transition-all duration-300">
     <nav class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-20 items-center justify-between">
         
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <a href="#" class="text-3xl font-bold text-primary-dark tracking-tight">
+          <a href="#" class="text-3xl font-bold text-primary-dark tracking-tight hover:text-secondary transition-colors duration-300">
             GymNexus
           </a>
         </div>
@@ -72,9 +66,9 @@
         <!-- Desktop Nav -->
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-6">
-            <a href="#features" class="text-slate-700 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-colors">Features</a>
-            <a href="#contact" class="text-slate-700 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
-            <a href="#contact" class="bg-secondary text-white hover:bg-secondary-hover px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm">
+            <a href="#features" class="text-slate-700 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Features</a>
+            <a href="#contact" class="text-slate-700 hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition-all duration-300">Contact</a>
+            <a href="#contact" class="bg-secondary text-white hover:bg-secondary-hover px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
               Request a Demo
             </a>
           </div>
@@ -82,7 +76,7 @@
         
         <!-- Mobile Menu Button -->
         <div class="flex md:hidden">
-          <button id="menu-button" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-slate-600 hover:bg-light-hover hover:text-primary-dark focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+          <button id="menu-button" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-slate-600 hover:bg-light-hover hover:text-primary-dark focus:outline-none transition-all duration-200" aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <i data-lucide="menu" class="block h-6 w-6" id="menu-icon-open"></i>
             <i data-lucide="x" class="hidden h-6 w-6" id="menu-icon-close"></i>
@@ -94,10 +88,10 @@
     
     <!-- Mobile Menu -->
     <div class="hidden md:hidden" id="mobile-menu">
-      <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3 border-t border-slate-200 bg-white">
-        <a href="#features" class="text-slate-700 hover:bg-light-hover hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition-colors">Features</a>
-        <a href="#contact" class="text-slate-700 hover:bg-light-hover hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition-colors">Contact</a>
-        <a href="#contact" class="bg-secondary text-white hover:bg-secondary-hover block w-full text-center px-4 py-3 rounded-lg text-base font-medium transition-all shadow-sm mt-2">
+      <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3 border-t border-slate-200 bg-white/95 backdrop-blur-md">
+        <a href="#features" class="text-slate-700 hover:bg-light-hover hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition-all duration-200">Features</a>
+        <a href="#contact" class="text-slate-700 hover:bg-light-hover hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition-all duration-200">Contact</a>
+        <a href="#contact" class="bg-secondary text-white hover:bg-secondary-hover block w-full text-center px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 shadow-lg mt-2">
           Request a Demo
         </a>
       </div>
@@ -108,36 +102,37 @@
   <main>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-white to-slate-100 pt-20">
+    <section class="bg-gradient-to-br from-white via-slate-50 to-slate-100 pt-20">
       <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)] py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-5rem)] py-20">
           
           <!-- Hero Text -->
-          <div class="text-center md:text-left">
-            <span class="text-sm font-bold text-secondary uppercase tracking-wider">The White-Label Fitness Platform</span>
-            <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-primary-dark sm:text-5xl lg:text-6xl">
+          <div class="text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
+            <span class="inline-block text-sm font-bold text-secondary uppercase tracking-wider px-4 py-2 bg-secondary/10 rounded-full">The White-Label Fitness Platform</span>
+            <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-primary-dark sm:text-5xl lg:text-6xl leading-tight">
               Your Brand. Your Gym.
-              <span class="text-secondary">Our Platform.</span>
+              <br>
+              <span class="gradient-text">Our Platform.</span>
             </h1>
-            <p class="mt-6 text-lg text-slate-600 max-w-lg mx-auto md:mx-0">
+            <p class="mt-8 text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               GymNexus provides the complete backend, white-label apps, and smart-lock integration you need to run your private gym business.
             </p>
-            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-              <a href="#contact" class="w-full sm:w-auto bg-secondary text-white hover:bg-secondary-hover px-8 py-3.5 rounded-lg text-base font-semibold transition-all shadow-lg text-center">
+            <div class="mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#contact" class="w-full sm:w-auto btn-primary hero-cta bg-secondary text-white hover:bg-secondary-hover px-10 py-4 rounded-lg text-base font-semibold transition-all shadow-xl text-center relative z-10">
                 Request a Demo
               </a>
-              <a href="#features" class="w-full sm:w-auto bg-transparent text-primary-dark border-2 border-slate-300 hover:bg-light-hover hover:border-slate-400 px-8 py-3.5 rounded-lg text-base font-semibold transition-all text-center">
+              <a href="#features" class="w-full sm:w-auto btn-secondary bg-transparent text-primary-dark border-2 border-slate-300 hover:bg-light-hover hover:border-secondary px-10 py-4 rounded-lg text-base font-semibold transition-all text-center">
                 Explore Features
               </a>
             </div>
           </div>
 
           <!-- Hero Image -->
-          <div class_ ="flex items-center justify-center">
+          <div class="flex items-center justify-center" data-aos="fade-up" data-aos-delay="200">
             <img 
               src="gym-interior.jpg" 
               alt="Modern private gym interior" 
-              class="rounded-xl shadow-2xl object-cover w-full h-auto max-h-[70vh]">
+              class="img-hover rounded-2xl shadow-premium object-cover w-full h-auto max-h-[70vh]">
           </div>
           
         </div>
@@ -145,168 +140,168 @@
     </section>
 
     <!-- Trust Bar -->
-    <section class="bg-light py-12">
+    <section class="bg-light py-16" data-aos="fade-up">
       <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p class="text-center text-sm font-semibold text-slate-500 uppercase tracking-wider">
+        <p class="text-center text-sm font-semibold text-slate-500 uppercase tracking-wider mb-8">
           Trusted by leading private gym & studio brands
         </p>
         <div class="mt-6 grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-4">
-          <div class="flex justify-center">
-            <span class="text-2xl font-bold text-slate-400 opacity-80">PT Pods</span>
+          <div class="flex justify-center trust-item">
+            <span class="text-2xl font-bold text-slate-400 opacity-70">PT Pods</span>
           </div>
-          <div class="flex justify-center">
-            <span class="text-2xl font-bold text-slate-400 opacity-80">StudioFlex</span>
+          <div class="flex justify-center trust-item">
+            <span class="text-2xl font-bold text-slate-400 opacity-70">StudioFlex</span>
           </div>
-          <div class="flex justify-center">
-            <span class="text-2xl font-bold text-slate-400 opacity-80">Access Gym</span>
+          <div class="flex justify-center trust-item">
+            <span class="text-2xl font-bold text-slate-400 opacity-70">Access Gym</span>
           </div>
-          <div class="flex justify-center">
-            <span class="text-2xl font-bold text-slate-400 opacity-80">Urban Wellness</span>
+          <div class="flex justify-center trust-item">
+            <span class="text-2xl font-bold text-slate-400 opacity-70">Urban Wellness</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Features Section (Tabbed) -->
-    <section id="features" class="py-20 sm:py-32 bg-white">
+    <section id="features" class="py-24 sm:py-32 bg-white">
       <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-3xl font-extrabold text-primary-dark sm:text-4xl">
+        <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+          <h2 class="text-4xl font-extrabold text-primary-dark sm:text-5xl leading-tight">
             A Complete Platform.
             <br>
             A Single Solution.
           </h2>
-          <p class="mt-4 text-lg text-slate-600">
+          <p class="mt-6 text-xl text-slate-600 leading-relaxed">
             GymNexus unifies every aspect of your operation—from booking and payments to access and in-gym media.
           </p>
         </div>
 
         <!-- Tab Interface -->
-        <div id="tabs" class="mt-16 max-w-5xl mx-auto">
+        <div id="tabs" class="mt-20 max-w-6xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           <!-- Tab Buttons -->
-          <div class="flex flex-wrap border-b border-slate-200">
-            <button class="tab-button flex-1 py-4 px-2 text-sm sm:text-base font-semibold text-secondary border-b-2 border-secondary whitespace-nowrap" data-tab="tab1">
-              <i data-lucide="smartphone-case" class="inline-block w-5 h-5 mr-1.5 align-text-bottom"></i> White-Label Apps
+          <div class="flex flex-wrap border-b-2 border-slate-200">
+            <button class="tab-button active flex-1 py-5 px-4 text-sm sm:text-base font-bold text-secondary border-b-4 border-secondary whitespace-nowrap transition-all duration-300" data-tab="tab1">
+              <i data-lucide="smartphone" class="inline-block w-5 h-5 mr-2 align-text-bottom"></i> White-Label Apps
             </button>
-            <button class="tab-button flex-1 py-4 px-2 text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-800 border-b-2 border-transparent hover:border-slate-300 transition-all whitespace-nowrap" data-tab="tab2">
-              <i data-lucide="key-round" class="inline-block w-5 h-5 mr-1.5 align-text-bottom"></i> Smart Access
+            <button class="tab-button flex-1 py-5 px-4 text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-800 border-b-4 border-transparent hover:border-slate-300 transition-all duration-300 whitespace-nowrap" data-tab="tab2">
+              <i data-lucide="key-round" class="inline-block w-5 h-5 mr-2 align-text-bottom"></i> Smart Access
             </button>
-            <button class="tab-button flex-1 py-4 px-2 text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-800 border-b-2 border-transparent hover:border-slate-300 transition-all whitespace-nowrap" data-tab="tab3">
-              <i data-lucide="layout-dashboard" class="inline-block w-5 h-5 mr-1.5 align-text-bottom"></i> Admin Dashboard
+            <button class="tab-button flex-1 py-5 px-4 text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-800 border-b-4 border-transparent hover:border-slate-300 transition-all duration-300 whitespace-nowrap" data-tab="tab3">
+              <i data-lucide="layout-dashboard" class="inline-block w-5 h-5 mr-2 align-text-bottom"></i> Admin Dashboard
             </button>
-            <button class="tab-button flex-1 py-4 px-2 text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-800 border-b-2 border-transparent hover:border-slate-300 transition-all whitespace-nowrap" data-tab="tab4">
-              <i data-lucide="play-square" class="inline-block w-5 h-5 mr-1.5 align-text-bottom"></i> In-Gym Media
+            <button class="tab-button flex-1 py-5 px-4 text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-800 border-b-4 border-transparent hover:border-slate-300 transition-all duration-300 whitespace-nowrap" data-tab="tab4">
+              <i data-lucide="play-square" class="inline-block w-5 h-5 mr-2 align-text-bottom"></i> In-Gym Media
             </button>
           </div>
 
           <!-- Tab Content Panels -->
-          <div class="mt-12">
+          <div class="mt-16">
             
             <!-- Tab 1: Apps Content -->
-            <div id="tab1-content" class="tab-content grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div id="tab1-content" class="tab-content grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h3 class="text-2xl font-bold text-primary-dark">Your Brand, Your App.</h3>
-                <p class="mt-4 text-lg text-slate-600">
+                <h3 class="text-3xl font-bold text-primary-dark leading-tight">Your Brand, Your App.</h3>
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
                   Launch native iOS & Android apps with your logo, colors, and brand. We handle the sign-in (Google/Apple), payments, and push notifications.
                 </p>
-                <ul class="mt-6 space-y-4">
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Apple Pay & Google Pay for one-tap checkout.</span>
+                <ul class="mt-8 space-y-5">
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Apple Pay & Google Pay for one-tap checkout.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Built-in system for credits, packages, and discount codes.</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Built-in system for credits, packages, and discount codes.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Effortless onboarding for new members.</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Effortless onboarding for new members.</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <img src="app.webp" alt="Person holding a smartphone" class="rounded-xl shadow-2xl object-cover w-full h-auto">
+                <img src="app.webp" alt="Person holding a smartphone" class="img-hover rounded-2xl shadow-premium object-cover w-full h-auto">
               </div>
             </div>
 
             <!-- Tab 2: Access Content -->
-            <div id="tab2-content" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div id="tab2-content" class="tab-content hidden grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h3 class="text-2xl font-bold text-primary-dark">Automated, Secure Entry.</h3>
-                <p class="mt-4 text-lg text-slate-600">
+                <h3 class="text-3xl font-bold text-primary-dark leading-tight">Automated, Secure Entry.</h3>
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
                   Powered by Tapkey, our SDK integration allows members to unlock doors with their phone. Access is automatically granted only for the duration of their paid booking.
                 </p>
-                <ul class="mt-6 space-y-4">
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Secure, time-limited Bluetooth access.</span>
+                <ul class="mt-8 space-y-5">
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Secure, time-limited Bluetooth access.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Full audit trail of who accessed what, and when.</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Full audit trail of who accessed what, and when.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Assign specific locks to specific gym "sites".</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Assign specific locks to specific gym "sites".</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <img src="tapkey.png" alt="Phone unlocking a smart lock" class="rounded-xl shadow-2xl object-cover w-full h-auto">
+                <img src="tapkey.png" alt="Phone unlocking a smart lock" class="img-hover rounded-2xl shadow-premium object-cover w-full h-auto">
               </div>
             </div>
 
             <!-- Tab 3: Dashboard Content -->
-            <div id="tab3-content" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div id="tab3-content" class="tab-content hidden grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h3 class="text-2xl font-bold text-primary-dark">Your Central Command Center.</h3>
-                <p class="mt-4 text-lg text-slate-600">
+                <h3 class="text-3xl font-bold text-primary-dark leading-tight">Your Central Command Center.</h3>
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
                   Our powerful web-based dashboard gives you full control. Manage users, view bookings, create discount codes, send push notifications, and pull detailed usage reports.
                 </p>
-                <ul class="mt-6 space-y-4">
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">View bookings by site and user; manually create sessions.</span>
+                <ul class="mt-8 space-y-5">
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">View bookings by site and user; manually create sessions.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Send bulk or individual push notifications to members.</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Send bulk or individual push notifications to members.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Real-time Slack feed integration for key events.</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Real-time Slack feed integration for key events.</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Clean admin dashboard on a laptop" class="rounded-xl shadow-2xl object-cover w-full h-auto">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Clean admin dashboard on a laptop" class="img-hover rounded-2xl shadow-premium object-cover w-full h-auto">
               </div>
             </div>
 
             <!-- Tab 4: Media Content -->
-            <div id="tab4-content" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div id="tab4-content" class="tab-content hidden grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h3 class="text-2xl font-bold text-primary-dark">Engaging, Automated Workouts.</h3>
-                <p class="mt-4 text-lg text-slate-600">
+                <h3 class="text-3xl font-bold text-primary-dark leading-tight">Engaging, Automated Workouts.</h3>
+                <p class="mt-6 text-lg text-slate-600 leading-relaxed">
                   Elevate the in-gym experience. Members can select a workout video during booking, which will then start automatically on the in-gym screen when their session begins.
                 </p>
-                <ul class="mt-6 space-y-4">
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Manage your complete workout video library from the dashboard.</span>
+                <ul class="mt-8 space-y-5">
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Manage your complete workout video library from the dashboard.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Automatically starts and stops videos in sync with bookings.</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Automatically starts and stops videos in sync with bookings.</span>
                   </li>
-                  <li class="flex items-start">
-                    <i data-lucide="check" class="w-5 h-5 text-secondary flex-shrink-0 mr-3 mt-1"></i>
-                    <span class="text-slate-600">Creates a premium, guided workout experience.</span>
+                  <li class="flex items-start feature-list-item">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-secondary flex-shrink-0 mr-4 mt-0.5"></i>
+                    <span class="text-slate-700 text-lg">Creates a premium, guided workout experience.</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <img src="tv.jpg" alt="TV screen in a gym" class="rounded-xl shadow-2xl object-cover w-full h-auto">
+                <img src="tv.jpg" alt="TV screen in a gym" class="img-hover rounded-2xl shadow-premium object-cover w-full h-auto">
               </div>
             </div>
 
@@ -317,109 +312,103 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section class="py-20 sm:py-32 bg-light">
+    <section class="py-24 sm:py-32 bg-light" data-aos="fade-up">
       <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center">
-          <i data-lucide="quote" class="w-12 h-12 text-secondary/50 mx-auto"></i>
-          <blockquote class="mt-6">
-            <p class="text-2xl font-medium text-primary-dark sm:text-3xl">
+        <div class="max-w-4xl mx-auto text-center">
+          <i data-lucide="quote" class="w-14 h-14 text-secondary/40 mx-auto"></i>
+          <blockquote class="mt-8">
+            <p class="text-2xl md:text-3xl font-medium text-primary-dark leading-relaxed">
               "GymNexus was the all-in-one solution we were looking for. We went from a complex system of spreadsheets and key-fobs to a fully automated platform in weeks. Our member feedback has been incredible."
             </p>
           </blockquote>
-          <footer class="mt-8">
-            <div class="font-semibold text-primary">Mike Mair, Founder</div>
-            <div class="text-slate-600">PT Pods</div>
+          <footer class="mt-10">
+            <div class="font-bold text-lg text-primary">Mike Mair, Founder</div>
+            <div class="text-slate-600 mt-1">PT Pods</div>
           </footer>
         </div>
       </div>
     </section>
 
     <!-- CTA / Contact Form Section -->
-    <section id="contact" class="py-20 sm:py-32 dark-bg-pattern text-white">
+    <section id="contact" class="py-24 sm:py-32 dark-bg-pattern text-white">
       <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
+        <div class="grid grid-cols-1 gap-20 lg:grid-cols-2 items-center">
           
           <!-- CTA Text -->
-          <div>
-            <h2 class="text-3xl font-extrabold sm:text-4xl">
+          <div data-aos="fade-right">
+            <h2 class="text-4xl font-extrabold sm:text-5xl leading-tight">
               Ready to power your gym with GymNexus?
             </h2>
-            <p class="mt-4 text-lg text-slate-200">
+            <p class="mt-6 text-xl text-slate-200 leading-relaxed">
               Register your interest to schedule a demo and learn how our white-label platform can be tailored for your brand. Our team will get in touch to discuss your specific needs.
             </p>
-            <div class="mt-8 space-y-6">
+            <div class="mt-12 space-y-8">
               <div class="flex items-start">
-                <i data-lucide="package-check" class="w-6 h-6 text-secondary flex-shrink-0 mr-3 mt-1"></i>
+                <i data-lucide="package-check" class="w-7 h-7 text-secondary flex-shrink-0 mr-4 mt-1"></i>
                 <div>
-                  <h4 class="font-semibold">All-in-One Solution</h4>
-                  <p class="text-slate-300">Apps, payments, access, and media managed in one place.</p>
+                  <h4 class="font-bold text-lg">All-in-One Solution</h4>
+                  <p class="text-slate-300 mt-1 leading-relaxed">Apps, payments, access, and media managed in one place.</p>
                 </div>
               </div>
               <div class="flex items-start">
-                <i data-lucide="rocket" class="w-6 h-6 text-secondary flex-shrink-0 mr-3 mt-1"></i>
+                <i data-lucide="rocket" class="w-7 h-7 text-secondary flex-shrink-0 mr-4 mt-1"></i>
                 <div>
-                  <h4 class="font-semibold">Fast Time-to-Market</h4>
-                  <p class="text-slate-300">Launch your branded, battle-tested platform quickly.</p>
+                  <h4 class="font-bold text-lg">Fast Time-to-Market</h4>
+                  <p class="text-slate-300 mt-1 leading-relaxed">Launch your branded, battle-tested platform quickly.</p>
                 </div>
               </div>
               <div class="flex items-start">
-                <i data-lucide="users" class="w-6 h-6 text-secondary flex-shrink-0 mr-3 mt-1"></i>
+                <i data-lucide="users" class="w-7 h-7 text-secondary flex-shrink-0 mr-4 mt-1"></i>
                 <div>
-                  <h4 class="font-semibold">Expert Partner</h4>
-                  <p class="text-slate-300">Built by gym owners, for gym owners.</p>
+                  <h4 class="font-bold text-lg">Expert Partner</h4>
+                  <p class="text-slate-300 mt-1 leading-relaxed">Built by gym owners, for gym owners.</p>
                 </div>
               </div>
             </div>
           </div>
           
           <!-- Form -->
-          <div class="bg-white p-8 sm:p-10 rounded-xl shadow-2xl">
-            <div id="status-message" class="hidden">
-              <!-- Success message appears here -->
-            </div>
-            
-            <form id="interest-form" class="space-y-6">
-              <h3 class="text-2xl font-bold text-primary-dark text-center">Register Your Interest</h3>
-              <div>
-                <label for="name" class="block text-sm font-medium text-slate-700">Full Name</label>
-                <div class="mt-1">
-                  <input type="text" id="name" name="name" required class="block w-full rounded-md border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm text-slate-900" placeholder="Jane Doe">
-                </div>
+          <div class="contact-form-card" data-aos="fade-left" data-aos-delay="100">
+            <div class="p-10 sm:p-12">
+              <div id="status-message" class="hidden">
+                <!-- Success message appears here -->
               </div>
               
-              <div>
-                <label for="business" class="block text-sm font-medium text-slate-700">Business Name</label>
-                <div class="mt-1">
-                  <input type="text" id="business" name="business" required class="block w-full rounded-md border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm text-slate-900" placeholder="Acme Fitness Studios">
+              <form id="interest-form" class="space-y-6">
+                <h3 class="text-3xl font-bold text-primary-dark text-center mb-8">Register Your Interest</h3>
+                <div>
+                  <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Full Name</label>
+                  <input type="text" id="name" name="name" required class="block w-full rounded-lg border-2 border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-base text-slate-900 px-4 py-3 transition-all duration-200" placeholder="Jane Doe">
                 </div>
-              </div>
-              
-              <div>
-                <label for="email" class="block text-sm font-medium text-slate-700">Email Address</label>
-                <div class="mt-1">
-                  <input type="email" id="email" name="email" required class="block w-full rounded-md border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm text-slate-900" placeholder="you@example.com">
+                
+                <div>
+                  <label for="business" class="block text-sm font-semibold text-slate-700 mb-2">Business Name</label>
+                  <input type="text" id="business" name="business" required class="block w-full rounded-lg border-2 border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-base text-slate-900 px-4 py-3 transition-all duration-200" placeholder="Acme Fitness Studios">
                 </div>
-              </div>
-              
-              <div>
-                <label for="locations" class="block text-sm font-medium text-slate-700">Number of Locations</label>
-                <div class="mt-1">
-                  <select id="locations" name="locations" class="block w-full rounded-md border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm text-slate-900">
+                
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+                  <input type="email" id="email" name="email" required class="block w-full rounded-lg border-2 border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-base text-slate-900 px-4 py-3 transition-all duration-200" placeholder="you@example.com">
+                </div>
+                
+                <div>
+                  <label for="locations" class="block text-sm font-semibold text-slate-700 mb-2">Number of Locations</label>
+                  <select id="locations" name="locations" class="block w-full rounded-lg border-2 border-slate-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-base text-slate-900 px-4 py-3 transition-all duration-200">
                     <option>1-5</option>
                     <option>6-20</option>
                     <option>21-50</option>
                     <option>50+</option>
                   </select>
                 </div>
-              </div>
-              
-              <div>
-                <button type="submit" class="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-secondary hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-all">
-                  Request a Demo
-                </button>
-              </div>
-              <p class="text-xs text-slate-500 text-center">We respect your privacy. No spam, ever.</p>
-            </form>
+                
+                <div class="pt-4">
+                  <button type="submit" class="btn-primary w-full flex justify-center py-4 px-6 border border-transparent rounded-lg shadow-lg text-base font-semibold text-white bg-secondary hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-all duration-300 relative">
+                    Request a Demo
+                  </button>
+                </div>
+                <p class="text-xs text-slate-500 text-center pt-2">We respect your privacy. No spam, ever.</p>
+              </form>
+            </div>
           </div>
           
         </div>
@@ -430,14 +419,14 @@
   
   <!-- Footer -->
   <footer class="bg-primary-dark">
-    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
       <div class="flex flex-col md:flex-row justify-between items-center">
         
-        <div>
-          <a href="#" class="text-2xl font-bold text-white">
+        <div class="text-center md:text-left">
+          <a href="#" class="text-3xl font-bold text-white hover:text-secondary transition-colors duration-300">
             GymNexus
           </a>
-          <p class="mt-2 text-sm text-slate-400">
+          <p class="mt-3 text-base text-slate-400">
             The All-in-One Platform for Private Fitness
           </p>
         </div>
@@ -451,111 +440,7 @@
   </footer>
 
   <!-- JavaScript -->
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Sticky Header
-    const nav = document.getElementById('navbar');
-    window.onscroll = () => {
-      if (window.scrollY > 20) {
-        nav.classList.add('shadow-md', 'bg-white/95');
-      } else {
-        nav.classList.remove('shadow-md', 'bg-white/95');
-      }
-    };
-
-    // Mobile Menu Toggle
-    const menuButton = document.getElementById('menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIconOpen = document.getElementById('menu-icon-open');
-    const menuIconClose = document.getElementById('menu-icon-close');
-
-    // Function to close menu
-    const closeMenu = () => {
-      menuButton.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.add('hidden');
-      menuIconOpen.classList.remove('hidden');
-      menuIconClose.classList.add('hidden');
-    }
-
-    // Toggle menu on button click
-    menuButton.addEventListener('click', () => {
-      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-      if (isExpanded) {
-        closeMenu();
-      } else {
-        menuButton.setAttribute('aria-expanded', 'true');
-        mobileMenu.classList.remove('hidden');
-        menuIconOpen.classList.add('hidden');
-        menuIconClose.classList.remove('hidden');
-      }
-    });
-    
-    // Close menu when a link is clicked
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        closeMenu();
-      });
-    });
-
-    // Tab Interface Logic
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const tabId = button.dataset.tab;
-
-        // Update button styles
-        tabButtons.forEach(btn => {
-          btn.classList.remove('text-secondary', 'border-secondary');
-          btn.classList.add('text-slate-500', 'border-transparent', 'hover:text-slate-800', 'hover:border-slate-300');
-        });
-        button.classList.add('text-secondary', 'border-secondary');
-        button.classList.remove('text-slate-500', 'border-transparent', 'hover:text-slate-800', 'hover:border-slate-300');
-
-        // Show/hide content panels
-        tabContents.forEach(content => {
-          if (content.id === `${tabId}-content`) {
-            content.classList.remove('hidden');
-          } else {
-            content.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    // Form Submission
-    const form = document.getElementById('interest-form');
-    const statusMessage = document.getElementById('status-message');
-    
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // You would normally send this data to your API (e.g., in a Firebase Function)
-      // For this demo, we'll just show a success message.
-      
-      form.style.display = 'none';
-      
-      statusMessage.innerHTML = `
-        <div class="rounded-md bg-green-50 p-4">
-          <div class="flex">
-            <div class="flex-shrink-0">
-              <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
-            </div>
-            <div class="ml-3">
-              <h3 class="text-sm font-medium text-green-800">Thank you!</h3>
-              <div class="mt-2 text-sm text-green-700">
-                <p>We've received your request. Our team will be in touch shortly to schedule your demo.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      statusMessage.style.display = 'block';
-    });
-  </script>
+  <script src="js/app.js"></script>
 
 </body>
 </html>
